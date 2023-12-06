@@ -5,7 +5,7 @@
 
 __global__ auto polynomial_expansion_kernel(const float *const poly,
                                             const int degree, const int n,
-                                            float *const array) noexcept
+                                            float *const array)
     -> void {
   const auto idx = blockIdx.x * blockDim.x + threadIdx.x;
 
@@ -25,7 +25,7 @@ __global__ auto polynomial_expansion_kernel(const float *const poly,
   array[idx] = result;
 }
 
-auto main(const int argc, const char *const *const argv) noexcept -> int {
+auto main(const int argc, const char *const *const argv) -> int {
   if (argc < 3) {
     std::cerr << "usage: " << argv[0] << " n degree\n";
     // return EXIT_FAILURE;
